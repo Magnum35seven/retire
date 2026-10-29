@@ -1,4 +1,4 @@
-# Retirement Compass — working build 0.9.0
+# Retirement Compass — working build 1.0.0
 
 Mobile-first, local-first Australian retirement-planning PWA prototype.
 
@@ -6,6 +6,11 @@ Mobile-first, local-first Australian retirement-planning PWA prototype.
 - Open `index.html` for a basic preview.
 - Serve this folder over localhost or HTTPS for service-worker/offline features and rules update checks.
 - Household data stays in this browser; JSON backup/import is available.
+
+## App icons (1.0.0)
+- Added Retirement Compass branding for browser tabs, iOS home-screen icons, and installed PWA launchers.
+- Includes 192px and 512px standard and maskable icons, plus 32px/48px favicon assets and a 1024px master.
+- The web app manifest declares standard and maskable icon purposes; service worker caches the icon assets for offline use.
 
 ## Rules update service (0.9.0)
 - Age Pension calculation rules are now loaded from a separately versioned rules JSON file, with the bundled rules as fallback.
@@ -26,4 +31,10 @@ Age Pension estimate excludes Work Bonus, Rent Assistance, transitional rates, m
 No account is required. Profile data is not sent to the rules update endpoint. Do not enter TFNs, myGov credentials, identity documents or bank account numbers. Browser storage can be lost if site data is cleared; export a backup.
 
 ## Quick validation
-Run `node tests/rules-update.test.js` to validate the rules manifest and current published rules file.
+Run `node tests/rules-update.test.js`, `node tests/tax-engine.test.js`, and `node tests/icons.test.js` to validate rules, tax calculations, and app icon assets.
+
+## Monthly-first planning (1.1.0)
+- Main living-cost, other-retirement-income, desired retirement income, fallback super withdrawal and contribution inputs are now monthly.
+- The projection converts monthly inputs to annual equivalents internally; pension thresholds remain in the fortnightly units required by the Age Pension calculation.
+- Results include monthly net income alongside annual projection totals.
+- Older saved profiles and 1.0.0 JSON backups are converted from annual to monthly amounts on import/load; new backups carry a unit-version marker to avoid repeat conversion.

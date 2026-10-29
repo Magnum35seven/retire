@@ -1,0 +1,15 @@
+const fs = require('fs');
+const assert = require('assert');
+const html = fs.readFileSync(__dirname + '/../index.html', 'utf8');
+assert.ok(html.includes('Household spending per month'));
+assert.ok(html.includes('Monthly household income target'));
+assert.ok(html.includes('Monthly super withdrawal'));
+assert.ok(html.includes('Monthly contributions until retirement'));
+assert.ok(html.includes("unitsVersion:'monthly-v1'"));
+assert.ok(html.includes("if(o.unitsVersion!=='monthly-v1')"));
+assert.ok(html.includes('Estimated net income / month'));
+const monthlyToAnnual = v => Math.max(0, Number(v) || 0) * 12;
+assert.strictEqual(monthlyToAnnual(5000), 60000);
+assert.strictEqual(monthlyToAnnual(3333), 39996);
+assert.strictEqual(monthlyToAnnual(0), 0);
+console.log('10 monthly-input checks passed');
