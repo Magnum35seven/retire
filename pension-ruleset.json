@@ -1,0 +1,75 @@
+{
+  "version": "AU-AGE-PENSION-2026-09-20-v1",
+  "effective_date": "2026-09-20",
+  "last_checked": "2026-10-29",
+  "status": "partially verified against current Services Australia pages; deeming thresholds flagged for rechecking",
+  "parameters": {
+    "age_pension_age": 67,
+    "income_test": {
+      "single_free_area_per_fortnight": 226,
+      "couple_free_area_per_fortnight": 396,
+      "single_cutoff_per_fortnight": 2701.4,
+      "couple_cutoff_combined_per_fortnight": 4128,
+      "single_max_rate_per_fortnight_derived": 1237.7,
+      "couple_max_combined_rate_per_fortnight_derived": 1866,
+      "single_taper_per_dollar": 0.5,
+      "couple_combined_taper_per_dollar": 0.5
+    },
+    "assets_test": {
+      "single_homeowner_full_limit": 333000,
+      "single_non_homeowner_full_limit": 600000,
+      "couple_homeowner_full_limit_combined": 499000,
+      "couple_non_homeowner_full_limit_combined": 766000,
+      "single_homeowner_cutoff": 745750,
+      "single_non_homeowner_cutoff": 1012750,
+      "couple_homeowner_cutoff_combined": 1121000,
+      "couple_non_homeowner_cutoff_combined": 1388000,
+      "reduction_per_1000_excess_per_fortnight": 3
+    },
+    "deeming": {
+      "single_threshold": 66800,
+      "couple_threshold_combined": 110600,
+      "below_threshold_rate": 0.0175,
+      "above_threshold_rate": 0.0375,
+      "threshold_status": "Needs independent recheck; standard page shows threshold figures but lagged rate figures"
+    }
+  },
+  "sources": [
+    {
+      "title": "Income test for Age Pension",
+      "url": "https://www.servicesaustralia.gov.au/income-test-for-age-pension",
+      "last_updated": "2026-09-20",
+      "checked": "2026-10-29"
+    },
+    {
+      "title": "Assets test for Age Pension",
+      "url": "https://www.servicesaustralia.gov.au/assets-test-for-age-pension",
+      "last_updated": "2026-09-20",
+      "checked": "2026-10-29"
+    },
+    {
+      "title": "Deeming rate change",
+      "url": "https://www.servicesaustralia.gov.au/deeming-rates-have-increased",
+      "published": "2026-09-20",
+      "checked": "2026-10-29"
+    },
+    {
+      "title": "Deeming rules",
+      "url": "https://www.servicesaustralia.gov.au/deeming",
+      "checked": "2026-10-29",
+      "note": "Page content includes older rates; threshold values should be checked against latest applicable instrument"
+    },
+    {
+      "title": "Social Security Act 1991",
+      "url": "https://www.legislation.gov.au/Latest/C2013C00660",
+      "checked": "2026-10-29"
+    }
+  ],
+  "limitations": [
+    "Standard resident rules only; residence exceptions and international agreements omitted",
+    "Couple estimates only when both partners are age 67 or older",
+    "No Work Bonus, transitional rate, Rent Assistance, overseas rate, gifting, compensation, special income stream, asset exemption or debt treatment",
+    "The max payment rates are derived from published income cut-off points and income free areas; not a substitute for official rate confirmation",
+    "Deeming threshold values flagged for rechecking"
+  ]
+}
