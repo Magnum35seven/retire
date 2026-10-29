@@ -1,10 +1,9 @@
 {
-  "name": "Retirement Compass 0.3.0",
+  "name": "Retirement Compass",
   "short_name": "Retirement Compass",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f7f4",
   "theme_color": "#173b35",
-  "description": "Local-first Australian retirement planning workspace with scenario projections and a dated source register",
-  "icons": []
+  "description": "Private Australian retirement planning estimates and official-source FAQs."
 }
