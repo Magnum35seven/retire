@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "version": "AU-AGE-PENSION-2026-09-20-v4",
+  "effectiveDate": "2026-09-20",
+  "lastChecked": "2026-10-30",
+  "agePensionAge": 67,
+  "income": {
+    "singleFree": 226,
+    "coupleFree": 396,
+    "singleCutoff": 2701.4,
+    "coupleCutoff": 4128,
+    "singleMax": 1237.7,
+    "coupleCombinedMax": 1866,
+    "singleTaper": 0.5,
+    "coupleCombinedTaper": 0.5
+  },
+  "assets": {
+    "single": {
+      "ownerFull": 333000,
+      "nonOwnerFull": 600000,
+      "ownerCutoff": 745750,
+      "nonOwnerCutoff": 1012750
+    },
+    "couple": {
+      "ownerFull": 499000,
+      "nonOwnerFull": 766000,
+      "ownerCutoff": 1121000,
+      "nonOwnerCutoff": 1388000
+    },
+    "taperPer1000": 3
+  },
+  "deeming": {
+    "singleThreshold": 66800,
+    "coupleThreshold": 110600,
+    "lowerRate": 0.0175,
+    "upperRate": 0.0375
+  },
+  "sources": [
+    {
+      "title": "Services Australia income test",
+      "url": "https://www.servicesaustralia.gov.au/income-test-for-age-pension",
+      "checked": "2026-10-30"
+    },
+    {
+      "title": "Services Australia assets test",
+      "url": "https://www.servicesaustralia.gov.au/assets-test-for-age-pension",
+      "checked": "2026-10-30"
+    },
+    {
+      "title": "Services Australia deeming",
+      "url": "https://www.servicesaustralia.gov.au/deeming",
+      "checked": "2026-10-30"
+    },
+    {
+      "title": "Australian Government Actuary \u2014 September 2026 deeming recommendation",
+      "url": "https://aga.gov.au/publications/deeming-rate-recommendation-september-2026",
+      "checked": "2026-10-30"
+    },
+    {
+      "title": "Social Security (Deeming Threshold Rates) Determination (No. 2) 2026",
+      "url": "https://www.legislation.gov.au/F2026L01083/asmade/2026-08-21/text/original/epub/OEBPS/document_1/document_1.html",
+      "checked": "2026-10-30"
+    }
+  ]
+}

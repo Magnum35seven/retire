@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "version": "AU-AGE-PENSION-2026-09-20-v4",
+  "publishedAt": "2026-10-30",
+  "rulesFile": "./rules/rules-2026-09-20-v4.json",
+  "notes": "Reviewed standard-case Age Pension rules. Rule updates must be reviewed and regression-tested before publication."
+}

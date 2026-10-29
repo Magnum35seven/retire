@@ -1,31 +1,29 @@
-# Retirement Compass — working build 0.4.0
+# Retirement Compass — working build 0.9.0
 
 Mobile-first, local-first Australian retirement-planning PWA prototype.
 
-## Run
+## Run / host
 - Open `index.html` for a basic preview.
-- Serve this folder over localhost or HTTPS to enable service-worker / install behaviour.
-- No account or server is required for calculations. Household entries are saved in browser local storage only when requested.
+- Serve this folder over localhost or HTTPS for service-worker/offline features and rules update checks.
+- Household data stays in this browser; JSON backup/import is available.
 
-## What's included
-- Household profile, local save/load, JSON import/export.
-- Simplified annual super/savings projection and CSV export.
-- Standard-case Age Pension estimate for single people and couples, including couples where only one partner has reached 67.
-- Mixed-age couple assessment uses couple income and combined assets thresholds; the single eligible partner's estimated payment is modelled at the partnered rate. The under-age partner's accumulation super is generally excluded from inputs where not assessable, but user must enter correctly assessed combined totals.
-- Effective-dated pension rules register and official source links.
-- Searchable 36-item FAQ library across Age Pension, couples, super and tax.
-- Local report/print, privacy controls and built-in checks.
+## Rules update service (0.9.0)
+- Age Pension calculation rules are now loaded from a separately versioned rules JSON file, with the bundled rules as fallback.
+- On startup and when requested, the app checks `rules/latest.json` using a no-cache fetch.
+- A candidate must pass schema/value checks and match the manifest version before it can replace active rules.
+- The active rules are cached locally for offline use; the prior version is retained for rollback.
+- The Rules Register shows active version, effective date and last successful check; active rules can be exported.
+- The service does not upload personal data. It does not automatically interpret government announcements: a maintainer must review official sources, publish a new versioned file, then update the manifest.
+- If deployed as a static site, upload the whole folder and keep the `rules/` directory at the same relative path.
 
-## Important calculation scope
-Ruleset version `AU-AGE-PENSION-2026-09-20-v2`. This is an indicative standard-case estimate, not a Centrelink determination or personal financial advice. It excludes Work Bonus, transitional rates, Rent Assistance, international agreements/residence exceptions, asset exemptions, gifting, special income streams, debt treatment and some supplements and payment interactions. Deeming rates and thresholds are versioned assumptions and should be checked against current Services Australia information.
+## Current rules and sources
+Rules effective 20 September 2026 include deeming rates of 1.75% below and 3.75% above the relevant threshold, as stated by the Australian Government Actuary and the Social Security (Deeming Threshold Rates) Determination (No. 2) 2026. See links in `rules/rules-2026-09-20-v4.json`. The income/asset thresholds are standard-case estimates and must be checked against Services Australia.
 
-For mixed-age couples, use combined assessable assets and income. The principal home is generally excluded. Accumulation-phase super owned by a partner under Age Pension age is generally not counted if it is not paying an income stream; income streams and exceptions can differ. The app does not automatically determine these classifications.
-
-## Test
-Open the Rules register and select “Run built-in checks”. The package includes a Node.js test script at `tests/pension-engine.test.js` for core calculation cases.
+## Limitations
+Age Pension estimate excludes Work Bonus, Rent Assistance, transitional rates, many residence exceptions, gifting, asset exemptions, special income streams and other Centrelink interactions. Tax estimates are approximate; see the tax assumptions below. The app is not a Centrelink determination or financial/tax advice.
 
 ## Privacy
-Data stays in the browser unless exported. Browser storage may be lost if site data is cleared. Export a JSON backup. Do not enter TFNs, myGov credentials, identity documents or bank account numbers.
+No account is required. Profile data is not sent to the rules update endpoint. Do not enter TFNs, myGov credentials, identity documents or bank account numbers. Browser storage can be lost if site data is cleared; export a backup.
 
-## FAQ source method
-FAQs are a curated question bank based on recurring topics addressed by Services Australia, the ATO and ASIC Moneysmart. It is not a search-volume ranking and is not copied wholesale from third-party websites. Every answer links to an official source.
+## Quick validation
+Run `node tests/rules-update.test.js` to validate the rules manifest and current published rules file.

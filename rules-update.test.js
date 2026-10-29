@@ -1,0 +1,14 @@
+const fs = require('fs');
+const assert = require('assert');
+const rules = JSON.parse(fs.readFileSync(__dirname + '/../rules/rules-2026-09-20-v4.json','utf8'));
+const manifest = JSON.parse(fs.readFileSync(__dirname + '/../rules/latest.json','utf8'));
+assert.strictEqual(manifest.schemaVersion,1);
+assert.strictEqual(manifest.version,rules.version);
+assert.ok(manifest.rulesFile.startsWith('./rules/'));
+assert.strictEqual(rules.effectiveDate,'2026-09-20');
+assert.strictEqual(rules.deeming.lowerRate,0.0175);
+assert.strictEqual(rules.deeming.upperRate,0.0375);
+assert.ok(rules.income.singleMax>0 && rules.income.coupleCombinedMax>rules.income.singleMax);
+assert.ok(rules.assets.single.ownerCutoff>rules.assets.single.ownerFull);
+assert.ok(rules.sources.length>=3 && rules.sources.every(s=>s.url.startsWith('https://')));
+console.log('9 rules-update checks passed');
